@@ -2,7 +2,12 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
-const items: string[] = ['About Us', 'Skill', 'Services', 'Jobs']
+const items: { title: string; route: string }[] = [
+  { title: 'About Us', route: '/about-us' },
+  { title: 'Skills', route: '/skills' },
+  { title: 'Services', route: '/services' },
+  { title: 'Jobs', route: '/jobs' },
+]
 
 const useHamStore = defineStore('ham', () => {
   const open = ref(false)
@@ -18,16 +23,17 @@ const hamStore = useHamStore()
 
 <template>
   <nav class="nav">
-    <img
-      src="/logo.svg"
-      alt="logo"
-      class="nav__logo"
-      :class="hamStore.open ? 'nav__logo--open' : ''"
-    />
-
+    <RouterLink to="/">
+      <img
+        src="/logo.svg"
+        alt="logo"
+        class="nav__logo"
+        :class="hamStore.open ? 'nav__logo--open' : ''"
+      />
+    </RouterLink>
     <ul class="nav__ul" :class="hamStore.open ? 'nav__ul--open' : ''">
-      <li v-for="item in items" :key="item" class="nav__item">
-        {{ item }}
+      <li v-for="item in items" :key="item.title" class="nav__item">
+        <RouterLink :to="item.route">{{ item.title }}</RouterLink>
         <span class="item__line"></span>
       </li>
     </ul>
@@ -65,9 +71,13 @@ nav {
 
     .nav__item {
       list-style: none;
-      font-size: $font-l;
-      font-family: $font-secondary;
-      color: $color-primary-300;
+
+      a {
+        font-size: $font-l;
+        font-family: $font-secondary;
+        color: $color-primary-300;
+        text-decoration: none;
+      }
 
       cursor: pointer;
 
