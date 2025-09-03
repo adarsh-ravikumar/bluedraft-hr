@@ -2,7 +2,7 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
-const items: { title: string; route: string }[] = [
+const links: { title: string; route: string }[] = [
   { title: 'About Us', route: '/about-us' },
   { title: 'Skills', route: '/skills' },
   { title: 'Services', route: '/services' },
@@ -22,7 +22,7 @@ const hamStore = useHamStore()
 </script>
 
 <template>
-  <nav class="nav">
+  <nav class="nav" :class="hamStore.open ? 'nav--open' : ''">
     <RouterLink to="/">
       <img
         src="/logo.svg"
@@ -32,7 +32,7 @@ const hamStore = useHamStore()
       />
     </RouterLink>
     <ul class="nav__ul" :class="hamStore.open ? 'nav__ul--open' : ''">
-      <li v-for="item in items" :key="item.title" class="nav__item">
+      <li v-for="item in links" :key="item.title" class="nav__item">
         <RouterLink :to="item.route">{{ item.title }}</RouterLink>
         <span class="item__line"></span>
       </li>
@@ -64,7 +64,7 @@ nav {
   :has(.nav__logo) {
     z-index: 7;
   }
-  
+
   .nav__logo {
     height: clamp(3rem, 10vw, 4rem);
     filter: saturate(100%) invert(0%) brightness(100%);
@@ -114,13 +114,21 @@ nav {
       filter: saturate(0%) invert(100%) brightness(300%);
     }
 
-    .nav__ul {
-      flex-direction: column;
+    &.nav--open {
       position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+
+    .nav__ul {
+      position: fixed;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       width: 100svw;
-      height: 100svh;
+      height: 100vh;
       top: 0;
       left: 100%;
       z-index: 5;
