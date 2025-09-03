@@ -86,6 +86,10 @@
     .content__image {
       width: 100%;
       aspect-ratio: 10/3;
+      @include max-screen(mobile) {
+        aspect-ratio: 3/2;
+        object-position: top;
+      }
       object-fit: cover;
       object-position: center;
       border-radius: $border-radius-sm;
