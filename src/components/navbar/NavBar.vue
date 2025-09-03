@@ -55,14 +55,20 @@ const hamStore = useHamStore()
 @use '../../styles/mixins.scss' as *;
 
 nav {
-  padding: clamp(1.5rem, 5vw, 3rem);
+  padding: $padding-body;
   margin-inline: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
+  :has(.nav__logo) {
+    z-index: 7;
+  }
+  
   .nav__logo {
     height: clamp(3rem, 10vw, 4rem);
+    filter: saturate(100%) invert(0%) brightness(100%);
+    transition: all 0.2s ease;
   }
 
   .nav__ul {
@@ -104,9 +110,8 @@ nav {
   }
 
   @include max-screen(mobile) {
-    .nav__logo--open {
+    :has(.nav__logo--open) .nav__logo {
       filter: saturate(0%) invert(100%) brightness(300%);
-      z-index: 6;
     }
 
     .nav__ul {
@@ -119,11 +124,13 @@ nav {
       top: 0;
       left: 100%;
       z-index: 5;
-      background: $color-primary-400;
+      background: $color-primary-300;
       transition: all 0.2s ease;
 
       .nav__item {
-        color: $color-white;
+        a {
+          color: $color-white;
+        }
 
         .item__line {
           background: $color-white !important;

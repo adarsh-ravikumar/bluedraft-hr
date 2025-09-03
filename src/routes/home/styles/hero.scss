@@ -1,28 +1,6 @@
-<script setup lang="ts"></script>
-
-<template>
-  <div class="home_page">
-    <section class="hero">
-      <img src="/city.png" alt="city" class="hero__image" />
-      <header class="hero__content">
-        <div class="content__text">
-          <h1>Come, Let's Build</h1>
-          <h1><span>Your</span> Career</h1>
-        </div>
-        <div class="content__cta">
-          <button class="cta__sec">Learn More</button>
-          <button class="cta__pri">Apply for Jobs</button>
-        </div>
-      </header>
-    </section>
-  </div>
-</template>
-
-<style lang="scss" scoped>
-@use '../styles/variables.scss' as *;
-@use '../styles/mixins.scss' as *;
-
-.hero {
+@use '../../../styles/variables.scss' as *;
+@use '../../../styles/mixins.scss' as *;
+.home__hero {
   width: 100vw;
   position: relative;
   display: flex;
@@ -112,11 +90,14 @@
       }
     }
   }
+}
 
-  @include max-screen(mobile) {
+
+@include max-screen(mobile) {
+  .home__hero {
     .hero__image {
       height: 50vh;
-      object-position: 60%;
+      object-position: 55%;
     }
 
     .hero__content {
@@ -135,4 +116,3 @@
     }
   }
 }
-</style>
