@@ -55,14 +55,14 @@ const hamStore = useHamStore()
 @use '../../styles/mixins.scss' as *;
 
 nav {
-  padding: 3rem;
+  padding: clamp(1.5rem, 5vw, 3rem);
   margin-inline: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   .nav__logo {
-    height: 4rem;
+    height: clamp(3rem, 10vw, 4rem);
   }
 
   .nav__ul {
@@ -136,14 +136,14 @@ nav {
     }
 
     .nav__ham {
-      width: 3rem;
+      width: 2rem;
       cursor: pointer;
       position: relative;
       display: block;
       z-index: 6;
 
       .ham__line {
-        width: 2.5rem;
+        width: 100%;
         /* height: 2px; */
         height: 0.2rem;
         background-color: $color-primary-400;
