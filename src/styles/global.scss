@@ -15,7 +15,28 @@ body {
   overflow-x: hidden;
 }
 
+h1 {
+  font-size: $font-xl;
+}
+
 p {
   text-align: justify;
   font-size: $font-m;
+}
+
+.title__embelish {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  white-space: nowrap;
+
+  &::before, &::after {
+    content: "";
+    display: block;
+    width: clamp(3rem, 10vw, 10rem);
+    height: 3px;
+    border-radius: 5px;
+    background: $color-primary-300;
+  }
 }
