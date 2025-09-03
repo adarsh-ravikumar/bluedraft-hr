@@ -57,10 +57,33 @@
 
       <div class="about__fade_btm"></div>
     </section>
+
+    <section class="offer">
+      <h1 class="offer__title title__embelish">What We Offer</h1>
+      <div class="offer__content">
+        <div class="content__seekers">
+          <img src="/job-seekers.svg" alt="job_seekers" class="seekers__img" />
+          <h1 class="seekers__title">For Job Seekers</h1>
+          <p class="content__text">
+            We help you take the next step in your career by connecting you with leading companies
+            in your industry. Submit your resume and let us find the perfect role for you.
+          </p>
+        </div>
+        <div class="content__employers">
+          <img src="/employers.svg" alt="employers" class="employers__img" />
+          <h1 class="employers__title">For Employers</h1>
+          <p class="content__text">
+            Looking to hire? Share your requirements with us, and we’ll provide you with
+            pre-screened, qualified candidates who are the right fit for your team.
+          </p>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <style lang="scss" scoped>
 @use './styles/hero.scss' as *;
 @use './styles/about.scss' as *;
+@use './styles/offer.scss' as *;
 </style>

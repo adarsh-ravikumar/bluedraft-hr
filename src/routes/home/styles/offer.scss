@@ -1,0 +1,59 @@
+@use '../../../styles/variables.scss' as *;
+@use '../../../styles/mixins.scss' as *;
+
+.offer {
+  .offer__content {
+    display: flex;
+
+    justify-content: center;
+    padding: $padding-body;
+    gap: 2rem;
+
+    .content__seekers,
+    .content__employers {
+      text-align: center;
+      width: 100%;
+      aspect-ratio: 3/2;
+      padding: calc($padding-body / 2);
+      border-radius: $border-radius-md;
+      background: $color-grey;
+
+      img {
+        width: 50%;
+        height: auto;
+      }
+
+      h1 {
+        margin-block: calc($padding-body / 2);
+        font-size: $font-xl;
+        font-family: $font-primary;
+        font-weight: 600;
+      }
+
+      p {
+        width: 95%;
+        margin-inline: auto;
+      }
+    }
+  }
+}
+
+@include max-screen(mobile) {
+  .offer .offer__content {
+    flex-direction: column;
+    .content__seekers,
+    .content__employers {
+      img {
+        width: 70%;
+      }
+
+      h1 {
+        white-space: nowrap;
+      }
+
+      p {
+        width: 90%;
+      }
+    }
+  }
+}
