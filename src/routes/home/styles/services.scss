@@ -1,0 +1,54 @@
+@use '../../../styles/variables.scss' as *;
+@use '../../../styles/mixins.scss' as *;
+
+.services {
+  padding: $padding-body;
+  margin-bottom: 60px;
+
+  .content__text {
+    padding: 30px 0px 20px 0px;
+  }
+
+  .services__lists {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0px;
+
+    .image_card {
+      --card-height: 20em;
+      --card-width: 20em;
+    }
+  }
+}
+
+@media only screen and (max-width: $screen-sm) {
+  .services__lists {
+    flex-direction: column;
+    gap: 7em;
+  }
+
+  .image_card {
+    --card-height: 20em !important;
+    --card-width: 100% !important;
+  }
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width:1400px){
+  
+  .services__lists {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 7em;
+
+    .image_card {
+      --card-height: 20em !important;
+      --card-width: 100% !important;
+    }
+  }
+}
+
+
+

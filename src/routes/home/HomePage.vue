@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import ImageCard from '@/components/imageCard/ImageCard.vue'
+</script>
 
 <template>
   <div class="home_page">
@@ -15,7 +17,6 @@
         </div>
       </header>
     </section>
-
     <section class="home__about">
       <div class="about__fade_top"></div>
 
@@ -57,6 +58,37 @@
 
       <div class="about__fade_btm"></div>
     </section>
+    <section class="services">
+      <h1 class="services__title title__embelish">Services</h1>
+      <div class="services__content">
+        <p class="content__text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eleifend est vel dui
+          placerat condimentum. Fusce sit amet bibendum tortor. Fusce commodo dolor non sagittis
+          viverra. Sed maximus, arcu id pharetra accumsan, ex ligula malesuada nulla, id tempus
+          massa risus sed erat. Suspendisse lacus ligula, venenatis sit amet gravida at, eleifend id
+          risus. Maecenas sit amet mauris facilisis, ullamcorper justo eget, elementum est.
+          Suspendisse in tellus eget felis congue convallis ac sit amet velit.
+        </p>
+        <div class="services__lists">
+          <ImageCard class="image_card">
+            <p>Card Title</p>
+            <p>click to learn more</p>
+          </ImageCard>
+          <ImageCard class="image_card">
+            <p>Card Title</p>
+            <p>click to learn more</p>
+          </ImageCard>
+          <ImageCard class="image_card">
+            <p>Card Title</p>
+            <p>click to learn more</p>
+          </ImageCard>
+          <ImageCard class="image_card">
+            <p>Card Title</p>
+            <p>click to learn more</p>
+          </ImageCard>
+        </div>
+      </div>
+    </section>
 
     <section class="offer">
       <h1 class="offer__title title__embelish">What We Offer</h1>
@@ -86,4 +118,5 @@
 @use './styles/hero.scss' as *;
 @use './styles/about.scss' as *;
 @use './styles/offer.scss' as *;
+@use './styles/services.scss' as *;
 </style>
