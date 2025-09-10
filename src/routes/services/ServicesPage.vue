@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const test = [
+const services = [
   {
     image: '/placeholder.png',
     content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis Placeholder Image
@@ -48,13 +48,13 @@ const test = [
       <h3>services</h3>
       <h1>Dedicated recruiting experts</h1>
     </div>
-    <div class="services__list" >
-      <div class="services__content" v-for="content in test">
+    <div class="services__list">
+      <div class="services__content" v-for="(service,i) in services" :key="i">
         <span>
-          <img :src="content.image" alt="placeholder" class="services__image" />
+          <img :src="service.image" alt="placeholder" class="services__image" />
         </span>
         <div class="services__text">
-          {{ content.content }}
+          {{ service.content }}
         </div>
       </div>
     </div>
@@ -108,6 +108,55 @@ const test = [
         height: 14em;
         width: 22em;
         border-radius: 10px;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $screen-sm) {
+  .services__list {
+    .services__content {
+      flex-direction: column;
+
+      &:nth-child(even) {
+        flex-direction: column !important;
+      }
+
+      .services__text {
+        padding: 0px !important;
+        padding-top:20px !important;
+        font-size: 14px !important;
+      }
+
+      .services__image {
+        height: 14em;
+        width: 100% !important;
+
+      }
+    }
+  }
+}
+
+
+@media only screen and (min-width: $screen-sm) and (max-width: 768px) {
+  .services__list {
+    .services__content {
+      flex-direction: column;
+
+      &:nth-child(even) {
+        flex-direction: column !important;
+      }
+
+      .services__text {
+        padding: 0px !important;
+        padding-top:20px !important;
+        
+      }
+
+      .services__image {
+        height: 30em !important;
+        width: 100% !important;
       }
     }
   }
