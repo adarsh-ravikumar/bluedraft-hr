@@ -23,7 +23,14 @@ const hamStore = useHamStore()
 
 <template>
   <nav class="nav" :class="hamStore.open ? 'nav--open' : ''">
-    <RouterLink to="/">
+    <RouterLink
+      to="/"
+      v-bind:onclick="
+        () => {
+          if (hamStore.open) hamStore.toggle()
+        }
+      "
+    >
       <img
         src="/logo.svg"
         alt="logo"
@@ -33,7 +40,15 @@ const hamStore = useHamStore()
     </RouterLink>
     <ul class="nav__ul" :class="hamStore.open ? 'nav__ul--open' : ''">
       <li v-for="item in links" :key="item.title" class="nav__item">
-        <RouterLink :to="item.route">{{ item.title }}</RouterLink>
+        <RouterLink
+          :to="item.route"
+          v-bind:onclick="
+            () => {
+              hamStore.toggle()
+            }
+          "
+          >{{ item.title }}</RouterLink
+        >
         <span class="item__line"></span>
       </li>
     </ul>
