@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+</script>
 
 <template>
   <div class="home_page">
@@ -10,7 +14,16 @@
           <h1><span>Your</span> Career</h1>
         </div>
         <div class="content__cta">
-          <button class="cta__sec">Learn More</button>
+          <button
+            class="cta__sec"
+            @click="
+              () => {
+                router.push('/about-us')
+              }
+            "
+          >
+            Learn More
+          </button>
           <button class="cta__pri">Apply for Jobs</button>
         </div>
       </header>
