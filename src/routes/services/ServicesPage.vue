@@ -1,63 +1,32 @@
 <script setup lang="ts">
-const services = [
-  {
-    image: '/placeholder.png',
-    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis Placeholder Image
-          eget sapien id dictum. Curabitur et diam odio. Nam cursus vehicula orci non porttitor. Ut
-          blandit lacus lorem, at pellentesque enim tristique eu. Sed rutrum justo sed elit sodales
-          congue. Vestibulum ex nisi, pellentesque quis tristique vel, lobortis a purus. Aliquam non
-          felis nec dui volutpat gravida. Nulla tellus purus, ultricies eu consequat vel, porttitor
-          non augue. Donec vulputate ornare pharetra. Sed condimentum enim nisl, ultrices consequat
-          nulla mattis nec. Cras convallis, sem in auctor tristique, tellus augue auctor mi, vel
-          egestas ex mauris vel neque. Pellentesque habitant morbi tristique senectus et netus et
-          malesuada fames ac turpis egestas. Etiam tincidunt ornare mi, rutrum finibus lectus
-          tristique ac. Donec dictum malesuada semper. Donec molestie venenatis erat.`,
-  },
-  {
-    image: '/placeholder.png',
-    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis Placeholder Image
-          eget sapien id dictum. Curabitur et diam odio. Nam cursus vehicula orci non porttitor. Ut
-          blandit lacus lorem, at pellentesque enim tristique eu. Sed rutrum justo sed elit sodales
-          congue. Vestibulum ex nisi, pellentesque quis tristique vel, lobortis a purus. Aliquam non
-          felis nec dui volutpat gravida. Nulla tellus purus, ultricies eu consequat vel, porttitor
-          non augue. Donec vulputate ornare pharetra. Sed condimentum enim nisl, ultrices consequat
-          nulla mattis nec. Cras convallis, sem in auctor tristique, tellus augue auctor mi, vel
-          egestas ex mauris vel neque. Pellentesque habitant morbi tristique senectus et netus et
-          malesuada fames ac turpis egestas. Etiam tincidunt ornare mi, rutrum finibus lectus
-          tristique ac. Donec dictum malesuada semper. Donec molestie venenatis erat.`,
-  },
-  {
-    image: '/placeholder.png',
-    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis Placeholder Image
-          eget sapien id dictum. Curabitur et diam odio. Nam cursus vehicula orci non porttitor. Ut
-          blandit lacus lorem, at pellentesque enim tristique eu. Sed rutrum justo sed elit sodales
-          congue. Vestibulum ex nisi, pellentesque quis tristique vel, lobortis a purus. Aliquam non
-          felis nec dui volutpat gravida. Nulla tellus purus, ultricies eu consequat vel, porttitor
-          non augue. Donec vulputate ornare pharetra. Sed condimentum enim nisl, ultrices consequat
-          nulla mattis nec. Cras convallis, sem in auctor tristique, tellus augue auctor mi, vel
-          egestas ex mauris vel neque. Pellentesque habitant morbi tristique senectus et netus et
-          malesuada fames ac turpis egestas. Etiam tincidunt ornare mi, rutrum finibus lectus
-          tristique ac. Donec dictum malesuada semper. Donec molestie venenatis erat.`,
-  },
-]
+import { useRoute } from 'vue-router'
+import { services as customServices } from '@/data/services'
+const route = useRoute()
+const currentRoute = route.params.slug
+const currentServices = customServices.find((service) => service.slug === currentRoute);
+
 </script>
 
 <template>
-  <div class="services__page">
+  <div v-if="currentServices" class="services__page">
+    
     <div class="services__title__container">
-      <h3>services</h3>
+      <h3>{{ currentServices.title }}</h3>
       <h1>Dedicated recruiting experts</h1>
     </div>
     <div class="services__list">
-      <div class="services__content" v-for="(service,i) in services" :key="i">
+      <div class="services__content" v-for="(service, i) in currentServices.subservices" :key="i">
         <span>
-          <img :src="service.image" alt="placeholder" class="services__image" />
+          <img :src="service.image ?? '/placeholder.png'" alt="placeholder" class="services__image" />
         </span>
         <div class="services__text">
-          {{ service.content }}
+          {{ service.description }}
         </div>
       </div>
     </div>
+  </div>
+  <div v-else>
+    <p>Loading Services....</p>
   </div>
 </template>
 
@@ -125,19 +94,17 @@ const services = [
 
       .services__text {
         padding: 0px !important;
-        padding-top:20px !important;
+        padding-top: 20px !important;
         font-size: 14px !important;
       }
 
       .services__image {
         height: 14em;
         width: 100% !important;
-
       }
     }
   }
 }
-
 
 @media only screen and (min-width: $screen-sm) and (max-width: 768px) {
   .services__list {
@@ -150,8 +117,7 @@ const services = [
 
       .services__text {
         padding: 0px !important;
-        padding-top:20px !important;
-        
+        padding-top: 20px !important;
       }
 
       .services__image {

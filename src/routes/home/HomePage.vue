@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ImageCard from '@/components/imageCard/ImageCard.vue'
+import { services } from '@/data/services';
 </script>
 
 <template>
@@ -70,25 +71,15 @@ import ImageCard from '@/components/imageCard/ImageCard.vue'
           Suspendisse in tellus eget felis congue convallis ac sit amet velit.
         </p>
         <div class="services__lists">
-          <ImageCard class="image_card">
-            <p>Card Title</p>
-            <p>click to learn more</p>
-          </ImageCard>
-          <ImageCard class="image_card">
-            <p>Card Title</p>
-            <p>click to learn more</p>
-          </ImageCard>
-          <ImageCard class="image_card">
-            <p>Card Title</p>
-            <p>click to learn more</p>
-          </ImageCard>
-          <ImageCard class="image_card">
-            <p>Card Title</p>
-            <p>click to learn more</p>
+          <ImageCard class="image_card"  v-for="service in services" :image="service.image">
+            <p style="text-align: center;">{{ service.title }}</p>
+            <p><RouterLink :to="`services/${service.slug}`">click here to learn more</RouterLink></p>
           </ImageCard>
         </div>
       </div>
     </section>
+
+    
 
     <section class="offer">
       <h1 class="offer__title title__embelish">What We Offer</h1>

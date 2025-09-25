@@ -2,12 +2,13 @@
 const props = defineProps({
   height: String,
   width: String,
+  image: String,
 })
 </script>
 
 <template>
   <div class="image_card_container"  :style="{ '--card-height': height, '--card-width': width }">
-    <img src="/placeholder.png" alt="placeholder" class="image" />
+    <img :src="props.image ? props.image : '/placeholder.png'" alt="placeholder" class="image" />
     <span class="image_card_text_container">
       <slot></slot>
     </span>
