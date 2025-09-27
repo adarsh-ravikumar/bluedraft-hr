@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ImageCard from '@/components/imageCard/ImageCard.vue'
-import { services } from '@/data/services';
+import { services } from '@/data/services'
 </script>
 
 <template>
@@ -63,23 +63,24 @@ import { services } from '@/data/services';
       <h1 class="services__title title__embelish">Services</h1>
       <div class="services__content">
         <p class="content__text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eleifend est vel dui
-          placerat condimentum. Fusce sit amet bibendum tortor. Fusce commodo dolor non sagittis
-          viverra. Sed maximus, arcu id pharetra accumsan, ex ligula malesuada nulla, id tempus
-          massa risus sed erat. Suspendisse lacus ligula, venenatis sit amet gravida at, eleifend id
-          risus. Maecenas sit amet mauris facilisis, ullamcorper justo eget, elementum est.
-          Suspendisse in tellus eget felis congue convallis ac sit amet velit.
+          We are your trusted partner for specialized <strong>industrial solutions</strong> and
+          skilled manpower. Our expertise spans three critical areas:
+          <strong>Technical Maintenance</strong> to ensure equipment reliability and minimize
+          downtime; <strong>HSE & Plant Operations</strong> to guarantee safety and compliance; and
+          comprehensive <strong>Workforce Staffing</strong> to scale your team with qualified
+          contract or permanent professionals. We empower your operations to run safely,
+          efficiently, and at peak performance, allowing you to focus on your core business goals.
         </p>
         <div class="services__lists">
-          <ImageCard class="image_card"  v-for="service in services" :image="service.image">
-            <p style="text-align: center;">{{ service.title }}</p>
-            <p><RouterLink :to="`services/${service.slug}`">click here to learn more</RouterLink></p>
+          <ImageCard class="image_card" v-for="service in services" :image="service.image">
+            <p style="text-align: center">{{ service.title }}</p>
+            <p>
+              <RouterLink :to="`services/${service.slug}`">click here to learn more</RouterLink>
+            </p>
           </ImageCard>
         </div>
       </div>
     </section>
-
-    
 
     <section class="offer">
       <h1 class="offer__title title__embelish">What We Offer</h1>
