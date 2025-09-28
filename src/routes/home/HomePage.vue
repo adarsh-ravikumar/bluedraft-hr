@@ -3,6 +3,7 @@ import Chip from '@/components/chip/Chip.vue'
 import ImageCard from '@/components/imageCard/ImageCard.vue'
 import { services } from '@/data/services'
 import { industry } from '@/data/trendingSkills'
+import { whyChooseUs } from '@/data/whyChooseUs'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
@@ -122,6 +123,33 @@ const router = useRouter()
       </div>
     </section>
 
+    <section class="whyChooseUs">
+      <h1 class="whyChooseUs__title title__embelish">Why Choose Us</h1>
+      <div class="whyChooseUs__content">
+        <p class="content__text">
+          In the complex industrial sector, choosing the right partner is critical. We stand apart
+          through our commitment to specialized focus, proven reliability, and unparalleled
+          partnership. We offer deep industry-specific knowledge in technical maintenance and HSE,
+          ensuring every solution is tailored to your exact needs. Our streamlined processes provide
+          flexible workforce scaling and a quick turnaround time for staffing, while our rigorous
+          candidate screening guarantees you receive high-quality, vetted talent. Choose us for a
+          dedicated, long-term relationship built on safety, efficiency, and a shared goal of
+          operational excellence.
+        </p>
+        <div class="choice__list">
+          <ImageCard
+            v-for="choice in whyChooseUs"
+            class="image_card"
+            :image="choice.image"
+          >
+            <p :style="{ textAlign: 'center', fontWeight: 'bold' }">{{ choice.title }}</p>
+            <p>{{ choice.description }}</p>
+          </ImageCard>
+        </div>
+      </div>
+    </section>
+
+
     <section class="offer">
       <h1 class="offer__title title__embelish">What We Offer</h1>
       <div class="offer__content">
@@ -152,4 +180,5 @@ const router = useRouter()
 @use './styles/offer.scss' as *;
 @use './styles/services.scss' as *;
 @use './styles/trendingSkills.scss' as *;
+@use './styles/whyChooseUs.scss' as *;
 </style>

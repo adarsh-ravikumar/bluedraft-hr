@@ -38,5 +38,6 @@ const props = defineProps({
   align-items: center;
   border-radius: 10px;
   background: #e4edf6;
+  padding: 10px;
 }
 </style>
