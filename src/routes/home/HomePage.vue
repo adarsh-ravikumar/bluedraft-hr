@@ -3,6 +3,9 @@ import Chip from '@/components/chip/Chip.vue'
 import ImageCard from '@/components/imageCard/ImageCard.vue'
 import { services } from '@/data/services'
 import { industry } from '@/data/trendingSkills'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 </script>
 
 <template>
@@ -15,7 +18,16 @@ import { industry } from '@/data/trendingSkills'
           <h1><span>Your</span> Career</h1>
         </div>
         <div class="content__cta">
-          <button class="cta__sec">Learn More</button>
+          <button
+            class="cta__sec"
+            @click="
+              () => {
+                router.push('/about-us')
+              }
+            "
+          >
+            Learn More
+          </button>
           <button class="cta__pri">Apply for Jobs</button>
         </div>
       </header>
@@ -30,12 +42,12 @@ import { industry } from '@/data/trendingSkills'
           <div class="about__content">
             <h1 class="content__title">About Us</h1>
             <p class="content__text">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis ad odit facere
-              blanditiis labore iste quibusdam non perspiciatis rerum, ab doloremque neque possimus
-              at alias, voluptatibus dolor asperiores doloribus totam. Impedit voluptatibus officiis
-              vero nisi quam dolorem error, aperiam cum sapiente vel. Alias quia voluptatum
-              quibusdam accusantium sunt ut sequi accusamus suscipit esse ratione, tenetur quisquam
-              velit quidem error laborum?
+              Blue Draft Engineering Solutions Pvt. Ltd. is a trusted provider of contract and
+              permanent staffing for both IT and Non-IT sectors. We specialize in connecting
+              businesses with highly skilled professionals— ranging from software engineers to oil &
+              gas field experts. Our mission is simple: provide fast, reliable, and high-quality
+              staffing that empowers your business to stay productive, competitive, and
+              future-ready.
             </p>
           </div>
 
@@ -47,12 +59,11 @@ import { industry } from '@/data/trendingSkills'
         <h1 class="content__title">About Us</h1>
         <div class="about__content">
           <p class="content__text">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis ad odit facere
-            blanditiis labore iste quibusdam non perspiciatis rerum, ab doloremque neque possimus at
-            alias, voluptatibus dolor asperiores doloribus totam. Impedit voluptatibus officiis vero
-            nisi quam dolorem error, aperiam cum sapiente vel. Alias quia voluptatum quibusdam
-            accusantium sunt ut sequi accusamus suscipit esse ratione, tenetur quisquam velit quidem
-            error laborum?
+            Blue Draft Engineering Solutions Pvt. Ltd. is a trusted provider of contract and
+            permanent staffing for both IT and Non-IT sectors. We specialize in connecting
+            businesses with highly skilled professionals— ranging from software engineers to oil &
+            gas field experts. Our mission is simple: provide fast, reliable, and high-quality
+            staffing that empowers your business to stay productive, competitive, and future-ready.
           </p>
           <RouterLink to="/about-us">Read More...</RouterLink>
         </div>
