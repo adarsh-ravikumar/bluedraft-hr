@@ -5,12 +5,12 @@ import SkillsPage from './skills/SkillsPage.vue'
 import ServicesPage from './services/ServicesPage.vue'
 import JobsPage from './jobs/JobsPage.vue'
 
-const subServiceRouteBehaviour = (route:RouteLocationNormalized) => {
+const subServiceRouteBehaviour = (route: RouteLocationNormalized) => {
   const subServiceRouteSlugs: string[] = ['it-staffing', 'non-it-staffing', 'staffing-models']
-  const routeSlug = route.params.slug as string | undefined;
-  const subServiceRouteFlag = subServiceRouteSlugs.includes(routeSlug as string);
-  if(subServiceRouteFlag && routeSlug){
-     return {top:0};
+  const routeSlug = route.params.slug as string | undefined
+  const subServiceRouteFlag = subServiceRouteSlugs.includes(routeSlug as string)
+  if (subServiceRouteFlag && routeSlug) {
+    return { top: 0 }
   }
 }
 
@@ -28,7 +28,7 @@ const router = createRouter({
     { path: '/jobs', component: JobsPage },
   ],
   scrollBehavior(to, from, savedPosition) {
-   return subServiceRouteBehaviour(to);
+    return subServiceRouteBehaviour(to) || { top: 0 }
   },
 })
 

@@ -1,4 +1,4 @@
-const placeHolderImage = "/placeholder.png";
+export const placeHolderImage = "/placeholder.png";
 
 import softwareEngineerImage from "../../assets/images/it-staffing-subServices/software-developers-engineers.png"
 import mobileAppDevImage from "../../assets/images/it-staffing-subServices/mobile-developers.png";

@@ -4,9 +4,9 @@ import { ref } from 'vue'
 
 const links: { title: string; route: string }[] = [
   { title: 'About Us', route: '/about-us' },
-  { title: 'Skills', route: '/skills' },
+  { title: 'Skills', route: '/' },
   { title: 'Services', route: '/services' },
-  { title: 'Jobs', route: '/jobs' },
+  { title: 'Jobs', route: '/' },
 ]
 
 const useHamStore = defineStore('ham', () => {
