@@ -150,7 +150,7 @@ By maintaining high safety standards, they protect people, equipment, and the en
   {
     title: 'Staffing Models',
     slug: 'staffing-models',
-    image: "public/images/services/staffing-models-services.png",
+    image: "/images/services/staffing-models-services.png",
     subservices: [
       {
         title: 'Contract Staffing',
