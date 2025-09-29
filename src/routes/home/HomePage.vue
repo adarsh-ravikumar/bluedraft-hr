@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import Chip from '@/components/chip/Chip.vue'
 import ImageCard from '@/components/imageCard/ImageCard.vue'
-import { services } from '@/data/services'
+import { placeHolderImage, services } from '@/data/services'
 import { industry } from '@/data/trendingSkills'
 import { whyChooseUs } from '@/data/whyChooseUs'
 import { useRouter } from 'vue-router'
+import aboutUsHomepageImage from '../../../assets/images/about-us/about-us-homepage.png'
 
 const router = useRouter()
 </script>
@@ -37,7 +38,7 @@ const router = useRouter()
       <div class="about__fade_top"></div>
 
       <div class="about__desktop">
-        <img src="/placeholder.png" alt="" class="about__image" />
+        <img :src="aboutUsHomepageImage ?? placeHolderImage" alt="" class="about__image" />
 
         <div class="about__right">
           <div class="about__content">

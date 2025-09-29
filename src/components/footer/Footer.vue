@@ -1,17 +1,14 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
+import { services } from '@/data/services';
 const links: { title: string; route: string }[] = [
   { title: 'About Us', route: '/about-us' },
-  { title: 'Skills', route: '/skills' },
+  { title: 'Skills', route: '/' },
   { title: 'Services', route: '/services' },
-  { title: 'Jobs', route: '/jobs' },
+  { title: 'Jobs', route: '/' },
 ]
 
-const services: { title: string; route: string }[] = [
-  { title: 'Service 1', route: '/' },
-  { title: 'Service 2', route: '/' },
-  { title: 'Service 3', route: '/' },
-]
+
 
 const contacts: { title: string; icon: string; route: string }[] = [
   { title: '@ handle', icon: '/instagram.svg', route: '/' },
@@ -38,7 +35,7 @@ const contacts: { title: string; icon: string; route: string }[] = [
           <p class="content__title">Services</p>
           <ul class="content__ul">
             <li v-for="item in services" :key="item.title" class="content__item">
-              <RouterLink :to="item.route">{{ item.title }}</RouterLink>
+              <RouterLink :to="`services/${item.slug}`">{{ item.title }}</RouterLink>
             </li>
           </ul>
         </div>

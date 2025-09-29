@@ -1,4 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { placeHolderImage } from '@/data/services'
+import aboutUsImage from '../../../assets/images/about-us/about-us.png'
+</script>
 
 <template>
   <div class="about_page">
@@ -6,7 +9,7 @@
       <h1 class="header__title">About Us</h1>
     </header>
     <div class="about__content">
-      <img src="/placeholder.png" alt="placeholder" class="content__image" />
+      <img :src="aboutUsImage ?? placeHolderImage" alt="placeholder" class="content__image" />
 
       <p>
         Blue Draft Engineering Solutions Pvt. Ltd. is built on a strong foundation of trust,
@@ -68,7 +71,7 @@
   .about__content {
     .content__image {
       width: 100%;
-      aspect-ratio: 10/3;
+      aspect-ratio: 9/3;
       @include max-screen(mobile) {
         aspect-ratio: 3/2;
         object-position: top;

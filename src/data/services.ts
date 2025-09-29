@@ -1,4 +1,4 @@
-const placeHolderImage = "/placeholder.png";
+export const placeHolderImage = "/placeholder.png";
 
 import softwareEngineerImage from "../../assets/images/it-staffing-subServices/software-developers-engineers.png"
 import mobileAppDevImage from "../../assets/images/it-staffing-subServices/mobile-developers.png";
@@ -150,7 +150,7 @@ By maintaining high safety standards, they protect people, equipment, and the en
   {
     title: 'Staffing Models',
     slug: 'staffing-models',
-    image: "public/images/services/staffing-models-services.png",
+    image: "/images/services/staffing-models-services.png",
     subservices: [
       {
         title: 'Contract Staffing',
