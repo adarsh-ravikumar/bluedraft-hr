@@ -26,8 +26,8 @@
 
 @media only screen and (max-width: $screen-sm) {
   .choice__list {
-    grid-template-columns: 1fr;
-    grid-template-rows: 38em 39em 39em 39em 39em;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 38em 39em 39em 39em 39em !important;
   }
   .image_card {
     --card-height: 20em !important;
