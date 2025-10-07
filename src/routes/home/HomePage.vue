@@ -69,7 +69,7 @@ const router = useRouter()
           </p>
           <RouterLink to="/about-us">Read More...</RouterLink>
         </div>
-        <img src="/placeholder.png" alt="placeholder" class="about__image" />
+        <img :src="aboutUsHomepageImage ?? placeHolderImage" alt="placeholder" class="about__image" />
       </div>
 
       <div class="about__fade_btm"></div>

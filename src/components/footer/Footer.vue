@@ -1,6 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
-import { services } from '@/data/services';
+import { services } from '@/data/services'
+
 const links: { title: string; route: string }[] = [
   { title: 'About Us', route: '/about-us' },
   { title: 'Skills', route: '/' },
@@ -8,12 +9,21 @@ const links: { title: string; route: string }[] = [
   { title: 'Jobs', route: '/' },
 ]
 
-
-
-const contacts: { title: string; icon: string; route: string }[] = [
-  { title: '@ handle', icon: '/instagram.svg', route: '/' },
-  { title: '+91 1230 456 129', icon: '/phone.svg', route: '/' },
-  { title: 'mail@provider.to', icon: '/mail.svg', route: '/' },
+const contacts: { title: string; icon: string; route: string; isExternal: boolean }[] = [
+  {
+    title: 'Bluedraft Engg',
+    icon: '/linkedIn.svg',
+    route: 'https://www.linkedin.com/in/bluedraft-engineering-a62838383',
+    isExternal: true,
+  },
+  { title: '+91 8790450035', icon: '/phone.svg', route: 'tel:+918790450035', isExternal: false },
+  { title: '+1 443-307-0024', icon: '/phone.svg', route: 'tel:+14433070024', isExternal: false },
+  {
+    title: 'Info@bluedraftengineering.com',
+    icon: '/mail.svg',
+    route: 'mailto:Info@bluedraftengineering.com',
+    isExternal: false,
+  },
 ]
 </script>
 
@@ -45,7 +55,27 @@ const contacts: { title: string; icon: string; route: string }[] = [
           <ul class="content__ul">
             <li v-for="item in contacts" :key="item.title" class="content__item">
               <img :src="item.icon" alt="contact_icon" />
-              <a :href="item.route">{{ item.title }}</a>
+
+              <a
+                :href="item.route"
+                :target="item.isExternal ? '_blank' : undefined"
+                :rel="item.isExternal ? 'noopener noreferrer' : undefined"
+              >
+                {{ item.title }}
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="content__address">
+          <p class="content__title">Address</p>
+          <ul class="content__ul">
+            <li class="content__item"><b>United States:</b></li>
+            <li class="content__item">2235 GREENCEDAR DR BEL AIR, MD 21015-6383 United States</li>
+            <li class="content__item"><b> India:</b></li>
+            <li class="content__item">
+              Plot No.205, Lakshmi Kalyana, 2nd Floor, Flat No.201 , Vaishali Nagar, Madeenaguda,
+              Hyderabad, 500084
             </li>
           </ul>
         </div>
@@ -78,7 +108,8 @@ footer {
 
       .content__quicklinks,
       .content__services,
-      .content__contact {
+      .content__contact,
+      .content__address {
         .content__title {
           font-size: $font-l;
           color: $color-white;
@@ -88,18 +119,19 @@ footer {
         .content__ul {
           .content__item {
             list-style: none;
+            text-decoration: none;
+            color: $color-white;
 
             display: flex;
             align-items: center;
             gap: 1rem;
+            margin-block: 1rem;
 
-            a {
+            * {
               text-decoration: none;
               color: $color-white;
               font-size: $font-m;
             }
-
-            margin-block: 1rem;
           }
         }
       }
@@ -124,8 +156,47 @@ footer {
     .footer__main {
       .footer__content {
         display: grid;
+        gap: 2rem;
+
+        .content__quicklinks,
+        .content__services,
+        .content__contact,
+        .content__address {
+          .content__ul {
+            .content__item {
+              * {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .footer__rights > p {
+      font-size: 14px !important;
+    }
+  }
+
+  @media only screen and (min-width: 850px) and (max-width: 1024px) {
+    .footer__main {
+      .footer__content {
+        display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
+
+        .content__quicklinks,
+        .content__services,
+        .content__contact,
+        .content__address {
+          .content__ul {
+            .content__item {
+              * {
+                font-size: $font-m;
+              }
+            }
+          }
+        }
       }
     }
   }
