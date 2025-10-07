@@ -72,22 +72,21 @@ import aboutUsImage from '../../../assets/images/about-us/about-us.png'
     .content__image {
       width: 100%;
       aspect-ratio: 9/3;
-      @include max-screen(mobile) {
-        aspect-ratio: 3/2;
-        object-position: top;
-      }
       object-fit: cover;
       object-position: center;
       border-radius: $border-radius-sm;
       margin-block: calc($padding-body / 2);
+      @include max-screen(mobile) {
+        aspect-ratio: 3/2;
+        object-position: top;
+      }
     }
 
     p {
+      margin-bottom: 2rem;
       br {
         margin-bottom: 1rem;
       }
-
-      margin-bottom: 2rem;
     }
   }
 }

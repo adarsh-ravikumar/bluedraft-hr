@@ -120,7 +120,7 @@
         width: 100%;
         aspect-ratio: 3/2;
         border-radius: $border-radius-sm;
-        object-fit: cover;
+        object-fit: contain;
         object-position: top;
       }
 
