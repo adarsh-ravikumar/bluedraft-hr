@@ -1,0 +1,42 @@
+@use './variables.scss' as *;
+@use './mixins.scss' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-primary;
+}
+
+body {
+  background-color: $color-white;
+  color: $color-primary-200;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: $font-xl;
+}
+
+p {
+  text-align: justify;
+  font-size: $font-m;
+}
+
+.title__embelish {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  white-space: nowrap;
+
+  &::before, &::after {
+    content: "";
+    display: block;
+    width: clamp(3rem, 10vw, 10rem);
+    height: 3px;
+    border-radius: 5px;
+    background: $color-primary-300;
+  }
+}

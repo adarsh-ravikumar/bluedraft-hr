@@ -1,0 +1,38 @@
+@use './variables.scss' as *;
+@use "sass:map";
+
+$breakpoints: (
+  xs: $screen-xs,
+  sm: $screen-sm,
+  md: $screen-md,
+  lg: $screen-lg,
+  xl: $screen-xl,
+  2xl: $screen-2xl,
+  mobile: $screen-md,
+);
+
+// if screen size less than $breakpoint, use styles
+@mixin max-screen($size) {
+  $bp: map.get($breakpoints, $size);
+
+  @if $bp {
+    @media (max-width: #{$bp}) {
+      @content;
+    }
+  } @else {
+    @warn "⚠️ Breakpoint `#{$size}` not found in $breakpoints map.";
+  }
+}
+
+// if screen size greater than $breakpoint, use styles
+@mixin min-screen($size) {
+  $bp: map.get($breakpoints, $size);
+
+  @if $bp {
+    @media (min-width: #{$bp}) {
+      @content;
+    }
+  } @else {
+    @warn "⚠️ Breakpoint `#{$size}` not found in $breakpoints map.";
+  }
+}

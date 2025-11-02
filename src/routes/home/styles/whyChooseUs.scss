@@ -1,0 +1,49 @@
+@use '../../../styles/variables.scss' as *;
+@use '../../../styles/mixins.scss' as *;
+
+.whyChooseUs {
+  padding: $padding-body;
+  margin-bottom: 60px;
+
+  .content__text {
+    padding: 30px 0px 20px 0px;
+  }
+
+  .image_card {
+    --card-height: 20em;
+    --card-width: 20em;
+  }
+
+  .choice__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); // Defines 3 equal columns
+    gap: 20px;
+    margin: 0 auto;
+    grid-template-rows: 35em 35em;
+  }
+
+}
+
+@media only screen and (max-width: $screen-sm) {
+  .choice__list {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 38em 39em 39em 39em 39em !important;
+  }
+  .image_card {
+    --card-height: 20em !important;
+    --card-width: 100% !important;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .choice__list {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 35em 35em 35em !important;
+  }
+
+  .image_card {
+    --card-height: 20em !important;
+    --card-width: 100% !important;
+  }
+}
