@@ -29,6 +29,7 @@ const props = defineProps({
   height: inherit;
   width: inherit;
   border-radius: 10px;
+  object-fit: cover;
 }
 
 .image_card_text_container {
