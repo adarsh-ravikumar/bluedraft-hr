@@ -4,9 +4,7 @@ import { ref } from 'vue'
 
 const links: { title: string; route: string }[] = [
   { title: 'About Us', route: '/about-us' },
-  { title: 'Skills', route: '/' },
   { title: 'Services', route: '/services' },
-  { title: 'Jobs', route: '/' },
 ]
 
 const useHamStore = defineStore('ham', () => {
@@ -101,11 +99,7 @@ nav {
       }
 
       cursor: pointer;
-      // fragile code, to be changed
-       &:nth-child(2), &:nth-child(4) {
-          cursor: not-allowed !important;
-      }
-
+  
       .item__line {
         display: block;
         width: 0%;
