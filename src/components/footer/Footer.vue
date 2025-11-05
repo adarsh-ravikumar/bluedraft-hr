@@ -16,7 +16,7 @@ const contacts: { title: string; icon: string; route: string; isExternal: boolea
     route: 'https://www.linkedin.com/in/bluedraft-engineering-a62838383',
     isExternal: true,
   },
-  { title: '+91 8790450035', icon: '/phone.svg', route: 'tel:+918790450035', isExternal: false },
+  { title: '+91 7075803400', icon: '/phone.svg', route: 'tel:+917075803400', isExternal: false },
   { title: '+1 443-307-0024', icon: '/phone.svg', route: 'tel:+14433070024', isExternal: false },
   {
     title: 'Info@bluedraftengineering.com',
